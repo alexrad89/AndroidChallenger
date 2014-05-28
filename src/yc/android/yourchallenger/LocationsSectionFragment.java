@@ -1,9 +1,11 @@
 package yc.android.yourchallenger;
 
 import java.util.UUID;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.location.Location;
+import android.location.LocationListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
@@ -19,12 +21,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
 
 public class LocationsSectionFragment extends Fragment implements
 		LocationListener, GooglePlayServicesClient.ConnectionCallbacks,
