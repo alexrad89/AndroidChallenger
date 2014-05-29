@@ -23,10 +23,11 @@ public class DBAdapter {
 	
 	final Context context;
 	
-	static DatabaseHelper DBHelper;
-	static SQLiteDatabase db;
+	DatabaseHelper DBHelper;
+	SQLiteDatabase db;
 	
-	public DBAdapter (Context ctx){
+	public DBAdapter (Context ctx)
+	{
 		this.context = ctx;
 		DBHelper = new DatabaseHelper(context);
 	}
@@ -56,38 +57,46 @@ public class DBAdapter {
 			db.execSQL("DROP TABLE IF EXISTS contacts");
 			onCreate(db);			
 		}
+	}
 		
 		//opens db database
-		public DatabaseHelper open() throws SQLException{
+		public DBAdapter open() throws SQLException
+		{
 			db = DBHelper.getWritableDatabase();
-			return this;
+			return null;			
 		}
-	
 		
 		//closes the database
-		public void close(){
+		public void close()
+		{
 			DBHelper.close();
 		}
 		
-		public long insertContact(String user, String password ){
+		//insert contacts
+		public long insertContact(String user, String password )
+		{
 			ContentValues initialValues = new ContentValues();
 			initialValues.put(KEY_NAME, user);
 			initialValues.put(KEY_PASSWORD, password);
 			return db.insert(DATABASE_NAME, null, initialValues);
 		}
 		
-		public boolean deleteContact(long rowId){
+		//deletes contact
+		public boolean deleteContact(long rowId)
+		{
 			return db.delete(DATABASE_NAME, KEY_ROWID + "+" + rowId, null) > 0;
 		}
 		
 		//retrieve contacts
-		public Cursor getAllContacts(){
+		public Cursor getAllContacts()
+		{
 			return db.query(DATABASE_NAME, new String[]{KEY_ROWID, KEY_NAME,
 					KEY_PASSWORD}, null, null, null, null, null);
-			}
+		}
 		
 		//retrieve specified contact
-		public Cursor getContact(long rowId) throws SQLException{
+		public Cursor getContact(long rowId) throws SQLException
+		{
 			Cursor mCursor =
 					db.query(true, DATABASE_NAME, new String[] {KEY_ROWID,
 					KEY_NAME, KEY_PASSWORD}, KEY_ROWID + "=" + rowId, null,
@@ -98,7 +107,8 @@ public class DBAdapter {
 			return mCursor;
 		}
 		
-		public Boolean updatContact(long rowId, String user, String password){
+		public Boolean updatContact(long rowId, String user, String password)
+		{
 			ContentValues args = new ContentValues();
 			args.put(KEY_USER, user);
 			args.put(KEY_PASSWORD, password);
@@ -106,7 +116,7 @@ public class DBAdapter {
 		}
 	}
 	
-};
+
 	
 
 

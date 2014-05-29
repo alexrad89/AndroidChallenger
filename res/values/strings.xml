@@ -6,6 +6,8 @@
     <string name="title_section1">Locations</string>
     <string name="title_section2">Map</string>
     <string name="play_services_available">Google Play services is available</string>
-     <string name="play_services_not_available">Google Play services is not available</string>
+    <string name="play_services_not_available">Google Play services is not available</string>
+    <string name="title_activity_data_base">DataBaseActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
