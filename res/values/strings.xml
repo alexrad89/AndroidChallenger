@@ -9,5 +9,6 @@
     <string name="play_services_not_available">Google Play services is not available</string>
     <string name="title_activity_data_base">DataBaseActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>

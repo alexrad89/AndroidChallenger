@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="yc.android.yourchallenger"
+<manifest package="yc.android.yourchallenger"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -18,7 +17,7 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
      The following two permissions are not required to use
-     Google Maps Android API v2, but are recommended.
+     Google Maps Android API v2, but are recommended.
     -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -33,7 +32,7 @@
         <provider
             android:name=".LocationsContentProvider"
             android:authorities="yc.android.yourchallenger.locationscontentprovider" >
-        </provider>
+        </provider>
         -->
 
         <uses-library
@@ -45,8 +44,14 @@
             android:value="AIzaSyDKjAOjGWRq9A0sNJD3RHuTXY6Sr9hy5t4" />
 
         <activity
-            android:name="yc.android.yourchallenger.DataBaseActivity"
-            android:label="@string/title_activity_data_base" >
+            android:name="yc.android.yourchallenger.MainActivity"
+            android:label="@string/title_activity_main" >
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
