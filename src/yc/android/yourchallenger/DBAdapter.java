@@ -19,7 +19,7 @@ public class DBAdapter {
 	static final int DATABASE_VERSION = 1;
 	
 	static final String DATABASE_CREATE = 
-			"create users for YourChallenger";
+			"create table contact (" + KEY_USER + " String primary key, "+ KEY_PASSWORD + "String);";
 	
 	final Context context;
 	
@@ -82,7 +82,7 @@ public class DBAdapter {
 		}
 		
 		//deletes contact
-		public boolean deleteContact(long rowId)
+		/*public boolean deleteContact(long rowId)
 		{
 			return db.delete(DATABASE_NAME, KEY_ROWID + "+" + rowId, null) > 0;
 		}
@@ -113,7 +113,7 @@ public class DBAdapter {
 			args.put(KEY_USER, user);
 			args.put(KEY_PASSWORD, password);
 			return db.update(DATABASE_NAME, args, KEY_ROWID + "=" + rowId, null) > 0;
-		}
+		}*/
 	}
 	
 

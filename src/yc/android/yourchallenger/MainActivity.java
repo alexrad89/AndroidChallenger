@@ -2,23 +2,38 @@ package yc.android.yourchallenger;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity
+{
 	@Override 
-	public void onCreate(Bundle savedInstanceState){
+	public void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Button insert = (Button) findViewById(R.id.insert_contact);
 		
-		String john = "john";
-		String pass = "mavsman";
-		DBAdapter db = new DBAdapter(this);
+		final String john = "john";
+		final String pass = "mavsman";
 		
+		final DBAdapter db = new DBAdapter(this);
 		db.open();
-		Toast toast = Toast.makeText(this,"database opened", Toast.LENGTH_SHORT);
-		toast.show();
+		if(db.open() == null)
+		{
+			Toast.makeText(this, "database not open", Toast.LENGTH_LONG).show();
+		}
 		db.insertContact(john, pass);
-		Toast inserted = Toast.makeText(this, "Contact inserted", Toast.LENGTH_SHORT);
-		inserted.show();
-	}	
+		db.close();
+		insert.setOnClickListener(new View.OnClickListener() 
+		{		
+			@Override
+			public void onClick(View arg0)
+			{
+				
+			}
+			
+		});	
+	}
 };
