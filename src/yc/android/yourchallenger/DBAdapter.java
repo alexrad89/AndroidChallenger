@@ -19,7 +19,9 @@ public class DBAdapter {
 	static final int DATABASE_VERSION = 1;
 	
 	static final String DATABASE_CREATE = 
-			"create table contact (" + KEY_USER + " String primary key, "+ KEY_PASSWORD + "String);";
+			"create table YCDB (" + 
+					KEY_USER + " TEXT, " + 
+					KEY_PASSWORD + " TEXT)";
 	
 	final Context context;
 	
@@ -29,7 +31,7 @@ public class DBAdapter {
 	public DBAdapter (Context ctx)
 	{
 		this.context = ctx;
-		DBHelper = new DatabaseHelper(context);
+		DBHelper = new DatabaseHelper(ctx);
 	}
 	
 	private static class DatabaseHelper extends SQLiteOpenHelper
@@ -71,7 +73,7 @@ public class DBAdapter {
 		{
 			DBHelper.close();
 		}
-		
+								
 		//insert contacts
 		public long insertContact(String user, String password )
 		{
