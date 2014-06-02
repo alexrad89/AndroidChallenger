@@ -20,17 +20,17 @@ public class MainActivity extends Activity
 		
 		final DBAdapter db = new DBAdapter(this);
 		db.open();
-		if(db.open() == null)
+		if(db.open() != null)
 		{
 			Toast.makeText(this, "database not open", Toast.LENGTH_LONG).show();
 		}
-		db.insertContact(john, pass);
-		db.close();
+		
 		insert.setOnClickListener(new View.OnClickListener() 
 		{		
 			@Override
 			public void onClick(View arg0)
 			{
+				db.insertContact(john, pass);
 				
 			}
 			

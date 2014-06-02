@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 public class DBAdapter {
 	static final String KEY_ROWID = "id";
@@ -14,14 +15,14 @@ public class DBAdapter {
 	static final String KEY_PASSWORD = "password";
 	static final String TAG = "DBAdapter";
 	
-	static final String DATABASE_NAME = "YCDB";
-	static final String KEY_NAME = "users";
+	static final String DATABASE_NAME = "HELLO";
+	static final String DATABASE_TABLE = "table";
 	static final int DATABASE_VERSION = 1;
 	
 	static final String DATABASE_CREATE = 
-			"create table YCDB (" + 
+			"create " +DATABASE_TABLE + " " + DATABASE_NAME +"(" + 
 					KEY_USER + " TEXT, " + 
-					KEY_PASSWORD + " TEXT)";
+					KEY_PASSWORD + " TEXT);";
 	
 	final Context context;
 	
@@ -78,13 +79,14 @@ public class DBAdapter {
 		public long insertContact(String user, String password )
 		{
 			ContentValues initialValues = new ContentValues();
-			initialValues.put(KEY_NAME, user);
+			initialValues.put(KEY_USER, user);
 			initialValues.put(KEY_PASSWORD, password);
+			Toast.makeText(this.context, "contact inserted", Toast.LENGTH_SHORT).show();
 			return db.insert(DATABASE_NAME, null, initialValues);
 		}
 		
 		//deletes contact
-		/*public boolean deleteContact(long rowId)
+		public boolean deleteContact(long rowId)
 		{
 			return db.delete(DATABASE_NAME, KEY_ROWID + "+" + rowId, null) > 0;
 		}
@@ -92,7 +94,7 @@ public class DBAdapter {
 		//retrieve contacts
 		public Cursor getAllContacts()
 		{
-			return db.query(DATABASE_NAME, new String[]{KEY_ROWID, KEY_NAME,
+			return db.query(DATABASE_NAME, new String[]{KEY_ROWID, KEY_USER,
 					KEY_PASSWORD}, null, null, null, null, null);
 		}
 		
@@ -101,7 +103,7 @@ public class DBAdapter {
 		{
 			Cursor mCursor =
 					db.query(true, DATABASE_NAME, new String[] {KEY_ROWID,
-					KEY_NAME, KEY_PASSWORD}, KEY_ROWID + "=" + rowId, null,
+					KEY_USER, KEY_PASSWORD}, KEY_ROWID + "=" + rowId, null,
 					null, null, null, null);
 			if(mCursor!= null){
 				mCursor.moveToFirst();
@@ -115,7 +117,7 @@ public class DBAdapter {
 			args.put(KEY_USER, user);
 			args.put(KEY_PASSWORD, password);
 			return db.update(DATABASE_NAME, args, KEY_ROWID + "=" + rowId, null) > 0;
-		}*/
+		}
 	}
 	
 
