@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class DBAdapter {
@@ -76,10 +77,10 @@ public class DBAdapter {
 		}
 								
 		//insert contacts
-		public long insertContact(String user, String password )
+		public long insertContact(String userName, String password )
 		{
 			ContentValues initialValues = new ContentValues();
-			initialValues.put(KEY_USER, user);
+			initialValues.put(KEY_USER, userName);
 			initialValues.put(KEY_PASSWORD, password);
 			Toast.makeText(this.context, "contact inserted", Toast.LENGTH_SHORT).show();
 			return db.insert(DATABASE_NAME, null, initialValues);
