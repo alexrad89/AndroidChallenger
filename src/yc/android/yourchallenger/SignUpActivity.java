@@ -2,9 +2,12 @@ package yc.android.yourchallenger;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class SignUpActivity extends Activity {
@@ -17,13 +20,35 @@ public class SignUpActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
-		Button signUp = (Button) findViewById(R.id.insert_contact);
-		
-		final String john = "john";
-		final String pass = "mavsman";
-		
+		final EditText mUserName = (EditText) findViewById(R.id.create_username);
+		final EditText mPassword = (EditText) findViewById(R.id.create_password);
+		Button register = (Button) findViewById(R.id.register);
 		final DBAdapter db = new DBAdapter(this);
-		db.open();
+		
+		register.setOnClickListener(new OnClickListener() 
+		{
+			
+			@Override
+			public void onClick(View v) 
+			{
+				String username = mUserName.getText().toString();
+				String password = mPassword.getText().toString();
+				db.open();
+				
+				db.insertContact(username, password);
+				db.close();
+				
+				Intent myIntent = new Intent(SignUpActivity.this, LoginActivity.class);
+				Toast.makeText(SignUpActivity.this, "you have succesfully created an account", Toast.LENGTH_LONG).show();
+				startActivity(myIntent);
+				
+				
+				
+			}
+        });
+		
+		
+	
 		
 	}
 

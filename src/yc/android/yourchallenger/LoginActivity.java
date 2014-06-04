@@ -32,8 +32,10 @@ public class LoginActivity extends Activity
 		final Button login = (Button) findViewById(R.id.login);
 		TextView signup = (TextView) findViewById(R.id.signup);
 		
-		login.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
+		login.setOnClickListener(new View.OnClickListener() 
+		{
+            public void onClick(View view) 
+            {
                 final String Username = mUserName.getText().toString();
                 final String Password=  mPassword.getText().toString();
 
