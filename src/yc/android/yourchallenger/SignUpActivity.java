@@ -24,11 +24,10 @@ public class SignUpActivity extends Activity {
 		
 		final DBAdapter db = new DBAdapter(this);
 		db.open();
-		if(db.open() != null) //checks to make sure database is actually open
-		{
-			Toast.makeText(this, "database not open", Toast.LENGTH_LONG).show();
-		}
+		
 	}
 
 	
 }
+
+

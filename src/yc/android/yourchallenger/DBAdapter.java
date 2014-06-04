@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class DBAdapter {
-	static final String KEY_ROWID = "id";
+	static final String KEY_ROWID = "_id";
 	static final String KEY_USER = "user";
 	static final String KEY_PASSWORD = "password";
 	static final String TAG = "DBAdapter";
