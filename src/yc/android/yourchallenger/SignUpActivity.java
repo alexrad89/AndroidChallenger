@@ -28,18 +28,6 @@ public class SignUpActivity extends Activity {
 		{
 			Toast.makeText(this, "database not open", Toast.LENGTH_LONG).show();
 		}
-		
-		
-		signUp.setOnClickListener(new View.OnClickListener() 
-		{		
-			@Override
-			public void onClick(View arg0)
-			{
-				db.insertContact(john, pass);
-				
-			}
-			
-		});	
 	}
 
 	
