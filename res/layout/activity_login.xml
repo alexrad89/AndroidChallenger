@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
-        android:text="Sign In" />
+        android:text="Sign Up" />
 
     <EditText
         android:id="@+id/user_name"

@@ -86,7 +86,6 @@ public class DBAdapter {
 			ContentValues initialValues = new ContentValues();
 			initialValues.put(KEY_USER, userName);
 			initialValues.put(KEY_PASSWORD, password);
-			Toast.makeText(this.context, "contact inserted", Toast.LENGTH_SHORT).show();
 			return db.insert(DATABASE_TABLE, null, initialValues);
 		}
 		
@@ -107,8 +106,8 @@ public class DBAdapter {
 		public Cursor getContact(long rowId) throws SQLException
 		{
 			Cursor mCursor =
-					db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-					KEY_USER, KEY_PASSWORD}, KEY_ROWID + "=" + rowId, null,
+					db.query(true, DATABASE_TABLE, 
+							new String[] {KEY_ROWID,KEY_USER, KEY_PASSWORD}, KEY_USER+ "=" + rowId, null,
 					null, null, null, null);
 			if(mCursor!= null){
 				mCursor.moveToFirst();
@@ -123,6 +122,18 @@ public class DBAdapter {
 			args.put(KEY_PASSWORD, password);
 			return db.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
 		}
+		
+		 public boolean Login(String username, String password) throws SQLException  
+		    {  
+		        Cursor mCursor = db.rawQuery("SELECT * FROM " + DATABASE_TABLE + " WHERE user=? AND password=?", new String[]{username,password});  
+		        if (mCursor != null) {  
+		            if(mCursor.getCount() > 0)  
+		            {  
+		                return true;  
+		            }  
+		        }  
+		     return false;  
+		    }  
 	}
 	
 

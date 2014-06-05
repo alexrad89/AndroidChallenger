@@ -39,38 +39,27 @@ public class LoginActivity extends Activity
                 final String Username = mUserName.getText().toString();
                 final String Password=  mPassword.getText().toString();
 
-                db.open();
-
-                Cursor c = db.getAllContacts();
-
-                   while(c.moveToNext())
-                   {
-                       String c1=c.getString(2);
-                       String c2=c.getString(3);
-
-                       if(c1 == Username)
-                        {
-                            if(c2 == Password)
-                            {
-                            Toast.makeText(LoginActivity.this,                 
-                            "You are succesfully logged in.",
-                            Toast.LENGTH_LONG).show();
-
-                                Intent myIntent = new Intent(view.getContext(), Menu.class);
-                                startActivityForResult(myIntent, 0); 
-                            }
-                            else
-                            {
-                                Toast.makeText(LoginActivity.this, "Incorrect password",Toast.LENGTH_LONG).show();
-                            }
-                            Intent myIntent = new Intent(view.getContext(), LoginActivity.class);
-                            startActivityForResult(myIntent, 0); 
-                        }
-
-                       else
-                        Toast.makeText(LoginActivity.this, "Incorrect",Toast.LENGTH_LONG).show();
-                   }
-
+                //try{  
+                    if(Username.length() > 0 && Password.length() >0)  
+                    {  
+                        DBAdapter dbUser = new DBAdapter(LoginActivity.this);  
+                        dbUser.open();  
+  
+                        if(dbUser.Login(Username, Password))  
+                        {  
+                            Toast.makeText(LoginActivity.this,"Successfully Logged In", Toast.LENGTH_LONG).show(); 
+                            Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(myIntent);
+                        }else{  
+                            Toast.makeText(LoginActivity.this,"Invalid Username/Password", Toast.LENGTH_LONG).show();  
+                        }  
+                        dbUser.close();  
+                    }  
+  
+                //}catch(Exception e)  
+               // {  
+                   // Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_LONG).show();  
+                //}  
                 db.close();
 
 
