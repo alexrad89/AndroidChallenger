@@ -36,7 +36,7 @@ public class SignUpActivity extends Activity {
 				db.open();
 				
 				db.insertContact(username, password);
-				db.close();
+				
 				
 				Intent myIntent = new Intent(SignUpActivity.this, LoginActivity.class);
 				Toast.makeText(SignUpActivity.this, "you have succesfully created an account", Toast.LENGTH_LONG).show();

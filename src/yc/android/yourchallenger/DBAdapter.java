@@ -16,14 +16,18 @@ public class DBAdapter {
 	static final String KEY_PASSWORD = "password";
 	static final String TAG = "DBAdapter";
 	
-	static final String DATABASE_NAME = "HELLO";
-	static final String DATABASE_TABLE = "table";
-	static final int DATABASE_VERSION = 1;
+	static final String DATABASE_NAME = "databaseYC";
+	static final String DATABASE_TABLE = "myTable";
+	static final double DATABASE_VERSION = 3;
 	
 	static final String DATABASE_CREATE = 
-			"create " +DATABASE_TABLE + " " + DATABASE_NAME +"(" + 
-					KEY_USER + " TEXT, " + 
-					KEY_PASSWORD + " TEXT);";
+		   /* "create table " + DATABASE_TABLE + " ("
+		            + KEY_ROWID + " integer primary key autoincrement,"
+		            + KEY_USER + " text,"
+		            + KEY_USER+ " text)";*/
+	
+			"create table myTable (_id integer primary key autoincrement, " + 
+			"user text not null, password text not null);";
 	
 	final Context context;
 	
@@ -40,7 +44,7 @@ public class DBAdapter {
 	{
 		DatabaseHelper(Context context)
 		{
-			super(context, DATABASE_NAME, null, DATABASE_VERSION);
+			super(context, DATABASE_NAME, null, (int) DATABASE_VERSION);
 		}
 
 		@Override
@@ -67,7 +71,7 @@ public class DBAdapter {
 		public DBAdapter open() throws SQLException
 		{
 			db = DBHelper.getWritableDatabase();
-			return null;			
+			return this;			
 		}
 		
 		//closes the database
@@ -83,19 +87,19 @@ public class DBAdapter {
 			initialValues.put(KEY_USER, userName);
 			initialValues.put(KEY_PASSWORD, password);
 			Toast.makeText(this.context, "contact inserted", Toast.LENGTH_SHORT).show();
-			return db.insert(DATABASE_NAME, null, initialValues);
+			return db.insert(DATABASE_TABLE, null, initialValues);
 		}
 		
 		//deletes contact
 		public boolean deleteContact(long rowId)
 		{
-			return db.delete(DATABASE_NAME, KEY_ROWID + "+" + rowId, null) > 0;
+			return db.delete(DATABASE_TABLE, KEY_ROWID + "+" + rowId, null) > 0;
 		}
 		
 		//retrieve contacts
 		public Cursor getAllContacts()
 		{
-			return db.query(DATABASE_NAME, new String[]{KEY_ROWID, KEY_USER,
+			return db.query(DATABASE_TABLE, new String[]{KEY_ROWID, KEY_USER,
 					KEY_PASSWORD}, null, null, null, null, null);
 		}
 		
@@ -103,7 +107,7 @@ public class DBAdapter {
 		public Cursor getContact(long rowId) throws SQLException
 		{
 			Cursor mCursor =
-					db.query(true, DATABASE_NAME, new String[] {KEY_ROWID,
+					db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
 					KEY_USER, KEY_PASSWORD}, KEY_ROWID + "=" + rowId, null,
 					null, null, null, null);
 			if(mCursor!= null){
@@ -117,7 +121,7 @@ public class DBAdapter {
 			ContentValues args = new ContentValues();
 			args.put(KEY_USER, user);
 			args.put(KEY_PASSWORD, password);
-			return db.update(DATABASE_NAME, args, KEY_ROWID + "=" + rowId, null) > 0;
+			return db.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
 		}
 	}
 	
