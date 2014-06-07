@@ -39,7 +39,7 @@ public class LoginActivity extends Activity
                 final String Username = mUserName.getText().toString();
                 final String Password=  mPassword.getText().toString();
 
-                //try{  
+                try{  
                     if(Username.length() > 0 && Password.length() >0)  
                     {  
                         DBAdapter dbUser = new DBAdapter(LoginActivity.this);  
@@ -56,28 +56,21 @@ public class LoginActivity extends Activity
                         dbUser.close();  
                     }  
   
-                //}catch(Exception e)  
-               // {  
-                   // Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_LONG).show();  
-                //}  
+                }catch(Exception e)  
+                {  
+                	Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_LONG).show();  
+                }  
                 db.close();
-
-
             }
         });
 		signup.setOnClickListener(new View.OnClickListener() 
-		{
-			
+		{			
 			@Override
 			public void onClick(View arg0) 
 			{
 				Intent myIntent = new Intent(LoginActivity.this, SignUpActivity.class);
-				startActivity(myIntent);
-				
+				startActivity(myIntent);				
 			}
 		});
 	}
-
-	
-
 }
