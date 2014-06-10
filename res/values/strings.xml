@@ -12,5 +12,14 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    
+    
+ 
+    <string name="imgdesc">imgdesc</string>
 
+    <string-array name="titles">
+        <item>Facebook</item>
+        <item>Google-Plus</item>
+        <item>TutorialsBuzz</item>
+    </string-array>
 </resources>
