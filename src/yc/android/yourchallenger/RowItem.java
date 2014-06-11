@@ -21,7 +21,7 @@ public class RowItem {
 		return icon;
 	}
 	
-	public void setIcon(){
+	public void setIcon(int icon){
 		this.icon = icon;
 	}
 }
