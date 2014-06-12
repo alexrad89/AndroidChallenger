@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -70,6 +71,9 @@ public class MainActivity extends Activity {
 				mDrawerList.setSelection(position);
 				getActionBar().setTitle(mNavigationDrawerItemTitles[position]);
 				mDrawerLayout.closeDrawer(mDrawerList);
+			}
+			else{
+				Log.e("MainActivity", "Error in creating fragment");
 			}
 		}
 
