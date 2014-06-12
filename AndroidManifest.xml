@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="14"
         android:targetSdkVersion="18" />
 
     <uses-feature
@@ -18,7 +18,7 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
      The following two permissions are not required to use
-     Google Maps Android API v2, but are recommended.
+     Google Maps Android API v2, but are recommended.
     -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -33,7 +33,7 @@
         <provider
             android:name=".LocationsContentProvider"
             android:authorities="yc.android.yourchallenger.locationscontentprovider" >
-        </provider>
+        </provider>
         -->
 
         <uses-library
@@ -46,13 +46,11 @@
 
         <activity
             android:name="yc.android.yourchallenger.MainActivity"
-            android:label="@string/title_activity_main">
-            
+            android:label="@string/title_activity_main" >
         </activity>
         <activity
             android:name="yc.android.yourchallenger.SignUpActivity"
             android:label="@string/title_activity_sign_up" >
-             
         </activity>
         <activity
             android:name="yc.android.yourchallenger.LoginActivity"
@@ -62,6 +60,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="yc.android.yourchallenger.DrawerItemCustomAdapter"
+            android:label="@string/title_activity_drawer_item_custom_adapter" >
         </activity>
     </application>
 

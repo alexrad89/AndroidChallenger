@@ -9,7 +9,7 @@ package yc.android.yourchallenger;
 
 public final class R {
     public static final class array {
-        public static final int titles=0x7f060000;
+        public static final int navigation_drawer_items_array=0x7f060000;
     }
     public static final class attr {
     }
@@ -32,28 +32,30 @@ public final class R {
         public static final int create_password=0x7f090008;
         public static final int create_username=0x7f090007;
         public static final int drawer_layout=0x7f090004;
-        public static final int icon=0x7f09000b;
+        public static final int imageViewIcon=0x7f09000b;
         public static final int left_drawer=0x7f090006;
         public static final int login=0x7f090003;
         public static final int password=0x7f090002;
         public static final int register=0x7f09000a;
         public static final int signup=0x7f090000;
         public static final int textView1=0x7f090009;
-        public static final int title=0x7f09000c;
+        public static final int textViewName=0x7f09000c;
         public static final int user_name=0x7f090001;
     }
     public static final class layout {
-        public static final int activity_login=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_sign_up=0x7f030002;
-        public static final int list_item=0x7f030003;
-        public static final int nav_drawer=0x7f030004;
+        public static final int activity_drawer_item_custom_adapter=0x7f030000;
+        public static final int activity_login=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_sign_up=0x7f030003;
+        public static final int listview_item_row=0x7f030004;
+        public static final int nav_drawer=0x7f030005;
     }
     public static final class menu {
         public static final int data_base=0x7f080000;
-        public static final int login=0x7f080001;
-        public static final int main=0x7f080002;
-        public static final int sign_up=0x7f080003;
+        public static final int drawer_item_custom_adapter=0x7f080001;
+        public static final int login=0x7f080002;
+        public static final int main=0x7f080003;
+        public static final int sign_up=0x7f080004;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -63,6 +65,7 @@ public final class R {
         public static final int play_services_available=0x7f050004;
         public static final int play_services_not_available=0x7f050005;
         public static final int title_activity_data_base=0x7f050006;
+        public static final int title_activity_drawer_item_custom_adapter=0x7f05000c;
         public static final int title_activity_login=0x7f05000a;
         public static final int title_activity_main=0x7f050008;
         public static final int title_activity_sign_up=0x7f050009;
