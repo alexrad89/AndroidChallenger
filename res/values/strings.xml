@@ -13,6 +13,8 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="imgdesc">imgdesc</string>
+    <string name="drawer_open">Open navigation drawer</string>
+<string name="drawer_close">Close navigation drawer</string>
 
     <string-array name="navigation_drawer_items_array">
         <item>Create</item>
