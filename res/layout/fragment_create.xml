@@ -10,7 +10,14 @@
         android:layout_centerInParent="true"
         android:text="Create View"
         android:textSize="16dp" />
- 
-    
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtLabel2"
+        android:layout_alignRight="@+id/txtLabel2"
+        android:layout_marginBottom="27dp"
+        android:text="Button" />
  
 </RelativeLayout>

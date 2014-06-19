@@ -101,19 +101,34 @@ public class MainActivity extends Activity {
 		}
 	 
 	 private void selectItem(int position) {
-		 Fragment fragment = new CreateFragment();
-		 Bundle args = new Bundle();
-		 args.putInt("key", position);
-		 fragment.setArguments(args);
+		 Fragment fragment = null;
 		 
-		 FragmentManager fragmentManager = getFragmentManager();
-		    fragmentManager.beginTransaction()
-		                   .replace(R.id.content_frame, fragment)
-		                   .commit();
-		 // Highlight the selected item, update the title, and close the drawer
-		    mDrawerList.setItemChecked(position, true);
-		    setTitle(mNavigationDrawerItemTitles[position]);
-		    mDrawerLayout.closeDrawer(mDrawerList);
+		 switch (position){
+		 case 0: fragment = new CreateFragment();
+		 break;
+		 
+		 case 1: fragment = new ReadFragment();
+		 break;
+		 
+		 case 2: fragment = new HelpFragment();
+		 break;
+		 
+		 default:
+			 break;
+		 }
+		/* Bundle args = new Bundle();
+		 args.putInt("key", position);
+		 fragment.setArguments(args);*/
+		if(fragment != null){ 
+			 FragmentManager fragmentManager = getFragmentManager();
+			    fragmentManager.beginTransaction()
+			                   .replace(R.id.content_frame, fragment)
+			                   .commit();
+			 // Highlight the selected item, update the title, and close the drawer
+			    mDrawerList.setItemChecked(position, true);
+			    setTitle(mNavigationDrawerItemTitles[position]);
+			    mDrawerLayout.closeDrawer(mDrawerList);
+		}
 	 }	 
 	 
 	 @Override
