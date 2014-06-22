@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="93dp"
         android:ems="10"
-        android:text="Create Username" >
+        android:hint="Create Username" >
 
         <requestFocus />
     </EditText>
@@ -29,7 +29,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="password" />
+        android:hint="Password" />
 
     <TextView
         android:id="@+id/textView1"
